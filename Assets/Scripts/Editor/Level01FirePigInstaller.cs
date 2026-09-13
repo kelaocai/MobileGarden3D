@@ -9,6 +9,9 @@ internal static class Level01FirePigInstaller
     private const string ScenePath = "Assets/Scenes/Level01_TowerDefense.unity";
     private const string PrefabPath = "Assets/Suriyun/Monster Pack Fire/Prefab/Fire Pig/Fire_Pig_B.prefab";
     private const string TurretPath = "Assets/KayKit/Characters/KayKit - Adventurers (for Unity)/Models/Accessories/turret_base.fbx";
+    private const string ProjectilePath = "Assets/Hovl Studio/Toon Projectiles 2/Prefabs/Projectile 5.prefab";
+    private const string FlashPath = "Assets/Hovl Studio/Toon Projectiles 2/Prefabs/Flash 5.prefab";
+    private const string HitPath = "Assets/Hovl Studio/Toon Projectiles 2/Prefabs/Hit 5.prefab";
 
     static Level01FirePigInstaller() => EditorApplication.delayCall += Install;
 
@@ -21,7 +24,10 @@ internal static class Level01FirePigInstaller
         TowerDefenseLevelLayout layout = Object.FindFirstObjectByType<TowerDefenseLevelLayout>();
         GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
         GameObject turret = AssetDatabase.LoadAssetAtPath<GameObject>(TurretPath);
-        if (layout == null || prefab == null || turret == null)
+        GameObject projectile = AssetDatabase.LoadAssetAtPath<GameObject>(ProjectilePath);
+        GameObject flash = AssetDatabase.LoadAssetAtPath<GameObject>(FlashPath);
+        GameObject hit = AssetDatabase.LoadAssetAtPath<GameObject>(HitPath);
+        if (layout == null || prefab == null || turret == null || projectile == null || flash == null || hit == null)
         {
             Debug.LogError("无法安装第一关火猪波次：缺少关卡布局或 Fire Pig B Prefab。");
             return;
@@ -33,7 +39,7 @@ internal static class Level01FirePigInstaller
         if (waves == null) manager.AddComponent<Level01WaveController>().Configure(layout, prefab);
         Level01TowerBuildController builder = manager.GetComponent<Level01TowerBuildController>();
         if (builder == null) builder = manager.AddComponent<Level01TowerBuildController>();
-        builder.Configure(layout, turret);
+        builder.Configure(layout, turret, projectile, flash, hit);
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
         Debug.Log("第一关已安装：3 波火猪、3 座可点击建造的自动炮塔。按 Play 开始。");

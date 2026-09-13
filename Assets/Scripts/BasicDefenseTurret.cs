@@ -6,11 +6,23 @@ public sealed class BasicDefenseTurret : MonoBehaviour
     [SerializeField] private float damage = 18f;
     [SerializeField] private float shotsPerSecond = 1.5f;
     [SerializeField] private float rotationSpeed = 300f;
+    [SerializeField] private float projectileSpeed = 7f;
+
+    private GameObject projectilePrefab;
+    private GameObject muzzleFlashPrefab;
+    private GameObject hitEffectPrefab;
 
     private Transform gun;
     private FirePigEnemy target;
     private float nextTargetSearch;
     private float nextShot;
+
+    public void ConfigureEffects(GameObject projectile, GameObject muzzleFlash, GameObject hitEffect)
+    {
+        projectilePrefab = projectile;
+        muzzleFlashPrefab = muzzleFlash;
+        hitEffectPrefab = hitEffect;
+    }
 
     private void Awake()
     {
@@ -45,8 +57,23 @@ public sealed class BasicDefenseTurret : MonoBehaviour
         if (toTarget.sqrMagnitude <= attackRange * attackRange && Time.time >= nextShot)
         {
             nextShot = Time.time + 1f / shotsPerSecond;
-            target.TakeDamage(damage);
+            Fire();
         }
+    }
+
+    private void Fire()
+    {
+        Vector3 muzzlePosition = gun.position + gun.forward * 0.38f + Vector3.up * 0.08f;
+        TurretProjectile.SpawnEffect(muzzleFlashPrefab, muzzlePosition, gun.rotation);
+        if (projectilePrefab == null)
+        {
+            target.TakeDamage(damage);
+            return;
+        }
+
+        GameObject projectile = Instantiate(projectilePrefab, muzzlePosition, gun.rotation);
+        TurretProjectile controller = projectile.GetComponent<TurretProjectile>() ?? projectile.AddComponent<TurretProjectile>();
+        controller.Initialize(target, damage, projectileSpeed, hitEffectPrefab);
     }
 
     private void FindTarget()

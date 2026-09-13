@@ -8,6 +8,9 @@ public sealed class Level01TowerBuildController : MonoBehaviour
 {
     [SerializeField] private TowerDefenseLevelLayout layout;
     [SerializeField] private GameObject turretModel;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject muzzleFlashPrefab;
+    [SerializeField] private GameObject hitEffectPrefab;
     [SerializeField] private int availableTurrets = 3;
     [SerializeField] private float selectionRadius = 0.75f;
     [SerializeField] private float turretScale = 0.85f;
@@ -15,10 +18,13 @@ public sealed class Level01TowerBuildController : MonoBehaviour
     private readonly HashSet<Transform> occupiedSlots = new();
     private Camera mainCamera;
 
-    public void Configure(TowerDefenseLevelLayout levelLayout, GameObject model)
+    public void Configure(TowerDefenseLevelLayout levelLayout, GameObject model, GameObject projectile, GameObject muzzleFlash, GameObject hitEffect)
     {
         layout = levelLayout;
         turretModel = model;
+        projectilePrefab = projectile;
+        muzzleFlashPrefab = muzzleFlash;
+        hitEffectPrefab = hitEffect;
     }
 
     private void Awake() => mainCamera = Camera.main;
@@ -85,7 +91,7 @@ public sealed class Level01TowerBuildController : MonoBehaviour
         GameObject tower = Instantiate(turretModel, nearest.position, Quaternion.identity, transform);
         tower.name = $"Defense Turret · {nearest.name}";
         tower.transform.localScale = Vector3.one * turretScale;
-        tower.AddComponent<BasicDefenseTurret>();
+        tower.AddComponent<BasicDefenseTurret>().ConfigureEffects(projectilePrefab, muzzleFlashPrefab, hitEffectPrefab);
         occupiedSlots.Add(nearest);
         availableTurrets--;
     }

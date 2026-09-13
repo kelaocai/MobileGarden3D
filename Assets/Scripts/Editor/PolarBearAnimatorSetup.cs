@@ -13,6 +13,7 @@ internal static class PolarBearAnimatorSetup
         EditorApplication.delayCall += EnsureController;
     }
 
+    [MenuItem("Tools/Mobile Garden/Update Polar Animator")]
     private static void EnsureController()
     {
         if (EditorApplication.isPlayingOrWillChangePlaymode)
@@ -24,6 +25,7 @@ internal static class PolarBearAnimatorSetup
         AnimationClip idle2 = LoadClip("idle2.FBX");
         AnimationClip idle3 = LoadClip("idle3.FBX");
         AnimationClip walk = LoadClip("walk.FBX");
+        AnimationClip attack = LoadClip("clap.FBX");
         if (idle1 == null || walk == null)
         {
             Debug.LogWarning("Polar locomotion controller could not be created because idle1 or walk is missing.");
@@ -33,6 +35,9 @@ internal static class PolarBearAnimatorSetup
         AnimatorController controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(ControllerPath);
         if (controller != null)
         {
+            EnsureState(controller.layers[0].stateMachine, "attack", attack);
+            EditorUtility.SetDirty(controller);
+            AssetDatabase.SaveAssets();
             return;
         }
 
@@ -48,6 +53,7 @@ internal static class PolarBearAnimatorSetup
         AnimatorState thirdIdle = AddOptionalState(machine, "idle3", idle3);
         AnimatorState walkState = machine.AddState("walk");
         walkState.motion = walk;
+        AddOptionalState(machine, "attack", attack);
 
         AddStartWalkingTransition(defaultState, walkState);
         AddStartWalkingTransition(secondIdle, walkState);
@@ -61,6 +67,14 @@ internal static class PolarBearAnimatorSetup
         EditorUtility.SetDirty(controller);
         AssetDatabase.SaveAssets();
         Debug.Log("Created PolarBearLocomotion controller.");
+    }
+
+    private static void EnsureState(AnimatorStateMachine machine, string stateName, AnimationClip clip)
+    {
+        if (clip == null) return;
+        foreach (ChildAnimatorState child in machine.states)
+            if (child.state.name == stateName) return;
+        machine.AddState(stateName).motion = clip;
     }
 
     private static AnimatorState AddOptionalState(
