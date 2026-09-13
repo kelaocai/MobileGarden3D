@@ -1,0 +1,13 @@
+Built-in Image 2.5 generation prompts
+
+1. Joystick base
+Use case: stylized-concept. Unity mobile game virtual joystick base sprite, square PNG with genuine alpha. Use bakery garden arena as style, palette, lighting and material reference. One centered circular joystick base: thick dark moss-green carved stone-and-clay ring, recessed center, warm cream rim, tiny leaf engravings, rounded handcrafted toy proportions. Polished cute 3D clay diorama UI icon, orthographic front view, soft warm top-left light. Transparent outside silhouette; no handle, text, weapons, extra objects, square tile or watermark.
+
+2. Joystick handle
+Use case: stylized-concept. Unity mobile game virtual joystick handle sprite, square PNG with genuine alpha. Use bakery garden arena as style reference. One centered plump polished cream-stone knob with muted turquoise inset, thin honey-gold rim, soft toy bevel and highlight. Orthographic front view. Transparent outside silhouette; no base, text, weapons, extra objects, square tile or watermark.
+
+3. Attack button
+Use case: stylized-concept. Unity mobile game attack button sprite, square PNG with genuine alpha. Use bakery garden arena as style reference. One centered circular melee attack button: chunky coral-red clay shield, warm cream-and-gold raised rim, embossed crossed ivory short swords, subtle mushroom-cap rhythm, friendly energetic premium fantasy mobile-game quality. Transparent outside silhouette; no words, UI panels, characters, extra objects, square tile or watermark.
+
+4. Transparency correction for joystick handle
+Use case: background-extraction. Remove the entire gray checkerboard background and replace it with genuine alpha transparency. Preserve the cream stone ring, gold rim, turquoise center knob, shape, colors, lighting, texture, proportions and position exactly. Change only the checkerboard background; clean antialiased edge; no new objects, text or watermark.

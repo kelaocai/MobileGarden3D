@@ -1,0 +1,7 @@
+Use case: precise-object-edit
+Asset type: production-ready Level 1 tower-defense map background, portrait 9:16
+Primary request: Simplify the existing “枣糕保卫战” Level 1 map for real mobile gameplay readability. Reduce environmental visual complexity by approximately 45 percent.
+Change: remove most small flowers, mushrooms, loose stones, shrubs, baskets, fence fragments, tree stumps and repeated garden produce. Replace busy clusters beside the road with broad calm grass shapes and a few simple low bushes. Keep one small vegetable garden, two signature apple trees, restrained pine-tree silhouettes around the boundary and a few landmark mushrooms. Reduce saturation, contrast and texture detail in outer vegetation. Create generous clean space around every build pad and along both edges of the enemy path.
+Visual hierarchy: the cream S-shaped road and six build pads are clearest; the bakery is second; surrounding vegetation is quiet supporting scenery.
+Invariants: preserve the bakery, bottom gate, continuous S-shaped road, exactly one bridge, river, cliffs, camera framing and exactly six build pads in their existing locations. Keep the warm handcrafted clay-diorama direction.
+Constraints: no characters, enemies, towers, projectiles, effects, UI, text, numbers, arrows, logos or watermark.

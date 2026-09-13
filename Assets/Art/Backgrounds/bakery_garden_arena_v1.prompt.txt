@@ -1,0 +1,10 @@
+Use case: stylized-concept
+Asset type: Unity mobile game static battlefield background, portrait 9:16
+Primary request: Create an original fixed-camera fantasy card-battle arena map inspired by the warm handmade bakery-garden mood of reference image 1 and the clear symmetrical two-sided battlefield readability of reference image 2. This is a clean empty level background on which units and placeable buildings will be rendered separately in Unity.
+Input images: Image 1 is style, palette, materials and cozy diorama reference only; Image 2 is high-level battlefield layout/readability reference only, do not copy its exact art, branding, UI, towers or symbols.
+Scene/backdrop: a vertically oriented symmetrical garden arena made of chunky handcrafted clay-like tiles; upper enemy half and lower player half; a narrow turquoise stream crossing horizontally through the middle; exactly two small stone-and-wood bridges aligned with left and right lanes; broad walkable cream cobblestone lanes and subtle grass borders; forest and rounded rocks framing only the outer edges.
+Style/medium: polished cute stylized 3D diorama render, low-poly/clay toy aesthetic, warm premium mobile-game art, orthographic top-down view with slight isometric depth.
+Composition/framing: fixed centered camera, full battlefield visible, strong left and right lanes, generous empty deployment areas on both halves, safe margins for mobile UI at top and bottom.
+Lighting/mood: soft warm daylight, gentle ambient occlusion, friendly adventurous mood.
+Color palette: moss and apple greens, warm cream stone, honey wood, turquoise water, small restrained red mushroom accents.
+Constraints: background map only; no buildings, no towers, no houses, no turrets, no treasure chests, no characters, no creatures, no cards, no UI, no text, no numbers, no logos, no crowns, no health bars, no watermark. Keep all important gameplay surfaces unobstructed and readable. Original design, not a replica of any existing game map.

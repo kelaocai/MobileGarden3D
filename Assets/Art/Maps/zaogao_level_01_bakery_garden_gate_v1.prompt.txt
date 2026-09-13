@@ -1,0 +1,11 @@
+Use case: stylized-concept
+Asset type: production-ready visual background for Level 1 of a portrait mobile tower-defense game, 9:16
+Primary request: Paint the first playable map for the original game “枣糕保卫战”, a beginner tutorial level called the Bakery Garden Gate. Cute enemies enter at the bottom forest gate, follow one continuous gently winding cream-stone path, cross one wooden bridge, pass six empty circular build pads, and reach the red-roof date-cake bakery at the top.
+Input images: the approved character/world concept establishes bakery design, warm clay materials and palette; the approved storyboard establishes tower-defense readability and build-pad language.
+Scene/backdrop: compact floating garden island framed by rounded pine trees, apple trees, vegetable plots, rocks, white flowers and red mushrooms. A small turquoise stream crosses the map. The bakery courtyard is the protected goal.
+Gameplay layout: one entrance at bottom center; one unbroken S-shaped route; exactly one bridge; exactly six golden-rimmed empty build pads, three per side; clear combat spacing and quiet top/bottom safe areas for mobile UI.
+Style/medium: polished cute stylized 3D clay-diorama render, handcrafted toy surfaces, premium family-friendly mobile-game art, orthographic top-down view with slight isometric depth.
+Lighting/mood: bright warm morning light and inviting tutorial atmosphere.
+Constraints: environment only; no characters, enemies, placed towers, projectiles, battle effects, cards, UI, text, numbers, arrows, logos or watermark. Original design.
+
+Iteration corrections: first add two middle build pads, then add the missing lower-left pad while preserving all other elements, producing exactly six pads total.

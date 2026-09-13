@@ -1,0 +1,11 @@
+Use case: illustration-story
+Asset type: professional game-design storyboard / visual gameplay pitch board, landscape 16:9
+Primary request: Create a coherent six-panel storyboard for an original tower-defense mobile game called “枣糕保卫战”. Show the complete gameplay loop: peaceful bakery morning, enemy scouts discover the pastry scent, enemies enter the garden path, the heroine places defenses, towers and animal allies fight waves, final victory protecting the bakery and the date-cakes.
+Input image: Image 1 is the strict reference for the heroine, gray tabby cat, round brown bear, bakery-garden world, warm clay materials, proportions and palette. Preserve their recognizable design language; do not copy the reference composition.
+Scene/backdrop: the same cozy floating-island bakery garden, red-roof pastry shop at the route endpoint, winding cream-stone enemy path through vegetable plots and pine trees, clearly marked round build pads beside the road.
+Panel sequence: 1) heroine, cat and bear prepare date-cakes outside the bakery; 2) cute hungry shadow-creatures discover the scent; 3) first wave follows the path past three glowing build pads; 4) heroine constructs a mushroom slingshot and oven turret; 5) towers and animal allies fight the wave; 6) the bakery and date-cakes are safe and everyone celebrates.
+Style/medium: polished cute stylized 3D clay-diorama storyboard renders, premium family-friendly mobile-game concept art, chunky handcrafted toy surfaces, cinematic but gameplay-readable.
+Composition/framing: clean 3-by-2 panel grid, consistent characters and environment, thin warm cream gutters, numbered panels 1–6 only.
+Lighting/mood: warm daylight progressing to energetic golden combat light and sunset victory glow.
+Color palette: coral red, pastry cream, honey gold, apple and moss green, muted turquoise, cocoa brown.
+Constraints: original tower-defense design; heroine is central protagonist; bakery is always the defense objective; cute non-frightening enemies; clear path and build-pad logic; consistent characters; no blood, guns, brands, copyrighted characters, logos, watermark or pseudo-text.
