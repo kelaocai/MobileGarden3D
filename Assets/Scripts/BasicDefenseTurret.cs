@@ -17,6 +17,30 @@ public sealed class BasicDefenseTurret : MonoBehaviour
     private float nextTargetSearch;
     private float nextShot;
 
+    public int Level { get; private set; } = 1;
+    public int TotalInvestment { get; private set; }
+    public Transform BuildSlot { get; private set; }
+    public bool CanUpgrade => Level < 3;
+
+    public void InitializeBuild(Transform slot, int initialCost)
+    {
+        BuildSlot = slot;
+        TotalInvestment = initialCost;
+    }
+
+    public bool Upgrade(int cost)
+    {
+        if (!CanUpgrade) return false;
+        Level++;
+        TotalInvestment += cost;
+        damage *= 1.45f;
+        attackRange += 0.35f;
+        shotsPerSecond *= 1.15f;
+        transform.localScale *= 1.08f;
+        StartCoroutine(UpgradePulse());
+        return true;
+    }
+
     public void ConfigureEffects(GameObject projectile, GameObject muzzleFlash, GameObject hitEffect)
     {
         projectilePrefab = projectile;
@@ -90,5 +114,26 @@ public sealed class BasicDefenseTurret : MonoBehaviour
                 target = enemy;
             }
         }
+    }
+
+    private System.Collections.IEnumerator UpgradePulse()
+    {
+        Vector3 targetScale = transform.localScale;
+        Vector3 peakScale = targetScale * 1.14f;
+        float elapsed = 0f;
+        while (elapsed < 0.16f)
+        {
+            elapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(targetScale, peakScale, elapsed / 0.16f);
+            yield return null;
+        }
+        elapsed = 0f;
+        while (elapsed < 0.16f)
+        {
+            elapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(peakScale, targetScale, elapsed / 0.16f);
+            yield return null;
+        }
+        transform.localScale = targetScale;
     }
 }

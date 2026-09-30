@@ -40,9 +40,13 @@ public sealed class Level01WaveController : MonoBehaviour
     private bool spawning;
     private bool won;
     private bool lost;
+    private Level01TowerBuildController buildController;
 
     public IReadOnlyCollection<FirePigEnemy> ActiveEnemies => activeEnemies;
     public int BaseLives => baseLives;
+    public int Defeated => defeated;
+    public int CurrentWaveDisplay => Mathf.Min(currentWave + 1, waves.Length);
+    public int TotalWaves => waves.Length;
     public bool IsComplete => won || lost;
 
     public void Configure(TowerDefenseLevelLayout levelLayout, GameObject prefab)
@@ -53,6 +57,9 @@ public sealed class Level01WaveController : MonoBehaviour
 
     private void Start()
     {
+        buildController = GetComponent<Level01TowerBuildController>();
+        Level01Hud hud = GetComponent<Level01Hud>() ?? gameObject.AddComponent<Level01Hud>();
+        hud.Initialize(this);
         if (layout == null) layout = FindFirstObjectByType<TowerDefenseLevelLayout>();
         if (layout == null || firePigPrefab == null || layout.Waypoints == null || layout.Waypoints.Length < 2)
         {
@@ -101,14 +108,11 @@ public sealed class Level01WaveController : MonoBehaviour
             baseLives = Mathf.Max(0, baseLives - 1);
             if (baseLives == 0) lost = true;
         }
-        else defeated++;
+        else
+        {
+            defeated++;
+            if (buildController != null) buildController.AddCoins(15);
+        }
     }
 
-    private void OnGUI()
-    {
-        GUIStyle style = new(GUI.skin.box) { fontSize = Mathf.RoundToInt(Screen.height * 0.022f), alignment = TextAnchor.MiddleLeft };
-        float width = Mathf.Min(360f, Screen.width * 0.58f);
-        string status = lost ? "挑战失败：面包屋失守" : won ? "第一关完成！" : $"第 {Mathf.Min(currentWave + 1, waves.Length)}/{waves.Length} 波  火猪 {activeEnemies.Count}  基地生命 {baseLives}  消灭 {defeated}";
-        GUI.Box(new Rect(16f, 16f, width, 48f), status, style);
-    }
 }

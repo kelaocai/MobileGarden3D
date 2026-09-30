@@ -33,11 +33,11 @@ public sealed class Level01RestartButton : MonoBehaviour
         var buttonGo = new GameObject("RestartButton");
         buttonGo.transform.SetParent(canvasGo.transform, false);
         var rect = buttonGo.AddComponent<RectTransform>();
-        rect.anchorMin = new Vector2(1f, 1f);
-        rect.anchorMax = new Vector2(1f, 1f);
-        rect.pivot = new Vector2(1f, 1f);
-        rect.anchoredPosition = new Vector2(-40f, -40f);
-        rect.sizeDelta = new Vector2(150f, 150f);
+        rect.anchorMin = new Vector2(0.5f, 1f);
+        rect.anchorMax = new Vector2(0.5f, 1f);
+        rect.pivot = new Vector2(0.5f, 1f);
+        rect.anchoredPosition = new Vector2(0f, -18f);
+        rect.sizeDelta = new Vector2(72f, 72f);
 
         var image = buttonGo.AddComponent<Image>();
         image.sprite = Resources.Load<Sprite>(SpritePath);
@@ -57,13 +57,13 @@ public sealed class Level01RestartButton : MonoBehaviour
         labelRect.anchorMin = new Vector2(0f, 0f);
         labelRect.anchorMax = new Vector2(1f, 0f);
         labelRect.pivot = new Vector2(0.5f, 1f);
-        labelRect.anchoredPosition = new Vector2(0f, -6f);
-        labelRect.sizeDelta = new Vector2(0f, 44f);
+        labelRect.anchoredPosition = new Vector2(0f, -3f);
+        labelRect.sizeDelta = new Vector2(88f, 26f);
 
         var text = labelGo.AddComponent<Text>();
         text.text = "重新开始";
         text.alignment = TextAnchor.MiddleCenter;
-        text.fontSize = 34;
+        text.fontSize = 18;
         text.color = Color.white;
         text.font = LoadUiFont();
         var shadow = labelGo.AddComponent<Shadow>();

@@ -242,6 +242,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 102180, guid: 05b0daca342dc8f4e967f04d831697bf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 80027005}
+    - targetCorrespondingSourceObject: {fileID: 102180, guid: 05b0daca342dc8f4e967f04d831697bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80027007}
+    - targetCorrespondingSourceObject: {fileID: 102180, guid: 05b0daca342dc8f4e967f04d831697bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 80027006}
   m_SourcePrefab: {fileID: 100100000, guid: 05b0daca342dc8f4e967f04d831697bf, type: 3}
 --- !u!1 &80027002 stripped
 GameObject:
@@ -263,6 +269,52 @@ MonoBehaviour:
   staff: {fileID: 1201968221}
   swingEffect: {fileID: 1460800425478370, guid: c2721edf07119f74ea2f68f2cad99755, type: 3}
   impactEffect: {fileID: 1479186786842274, guid: 8c07f41bda85c0e41abde22f9f27ed83, type: 3}
+--- !u!114 &80027006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80027002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b029e5b2e3c4b769fde5372e5c359a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PolarBearWander
+  wanderRadius: 8
+  minimumIdleTime: 2
+  maximumIdleTime: 5
+  destinationSearchRadius: 3
+  destinationAttempts: 12
+  moveSpeed: 1.2
+  stoppingDistance: 0.15
+  detectionRadius: 4.2
+  attackRange: 0.75
+  attackDamage: 24
+  attackCooldown: 1.15
+  chaseSpeed: 2.25
+--- !u!195 &80027007
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80027002}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.35
+  m_Speed: 1.2
+  m_Acceleration: 4
+  avoidancePriority: 50
+  m_AngularSpeed: 360
+  m_StoppingDistance: 0.15
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &89917046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1248,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1453648102191072, guid: 6e39ca2f8efb71e48923599f48461c26, type: 3}
   muzzleFlashPrefab: {fileID: 1460800425478370, guid: c2721edf07119f74ea2f68f2cad99755, type: 3}
   hitEffectPrefab: {fileID: 1479186786842274, guid: 8c07f41bda85c0e41abde22f9f27ed83, type: 3}
-  availableTurrets: 3
+  startingCoins: 300
+  buildCost: 100
+  levelTwoCost: 80
+  levelThreeCost: 150
   selectionRadius: 0.75
   turretScale: 0.85
 --- !u!1 &515962332
